@@ -15,7 +15,6 @@ with open('data/brown_vocab_100.txt', 'r') as file:
     for index, word in enumerate(file):
             word = word.rstrip() #remove newline character
             word_index_dict[word] = index 
-print(word_index_dict)
 
 # TODO: write word_index_dict to word_to_index_100.txt
 with open('word_to_index_100.txt', 'w') as wf:
