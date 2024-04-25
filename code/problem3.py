@@ -36,17 +36,18 @@ for line in f:
     words = line.lower().split()
     for word in words[1:]: # skip the first word
         if word in word_index_dict:
-            counts[word_index_dict[word], word_index_dict[previous_word]] += 1
+            counts[word_index_dict[previous_word], word_index_dict[word]] += 1
             previous_word = word
 
-print(f" counts of 'all' :{counts[:, word_index_dict['all']].sum()}")
-print(f" counts of 'all the' :{counts[word_index_dict['the'], word_index_dict['all']]}")
+
+print(f" counts of 'all' :{counts[word_index_dict['all'], :].sum()}")
+print(f" counts of 'all the' :{counts[word_index_dict['all'], word_index_dict['the']]}")
       
 #TODO: normalize counts
-probs = normalize(counts, norm='l1', axis=0)
+probs = normalize(counts, norm='l1', axis=1)
 
 # print the probability of the bigram 'all the'
-print(f"probability of 'all the': {probs[word_index_dict['the'], word_index_dict['all']]}")
+print(f" probability of 'all the' :{probs[word_index_dict['all'], word_index_dict['the']]}")
 
 #TODO: writeout bigram probabilities
 
@@ -54,7 +55,7 @@ pairs_to_test = [('the','all'), ('jury', 'the'), ('campaign', 'the'), ('calls', 
 
 with open('result/bigram_probs.txt', 'w') as wf:
     for pair in pairs_to_test:
-        prob = probs[word_index_dict[pair[0]], word_index_dict[pair[1]]]
+        prob = probs[word_index_dict[pair[1]], word_index_dict[pair[0]]]
         wf.write(f'{pair[0]}|{pair[1]}: {prob}\n')
 
 
