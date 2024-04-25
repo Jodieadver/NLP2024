@@ -30,8 +30,6 @@ f = open("data/brown_100.txt")
 
 ### Trigram probabilities
 
-trigrams_to_compute = [['past', 'in', 'the'], ['time','in', 'the'], ['said', 'the', 'jury'], ['reccomended', 'the', 'jury'], ['that','jury','said'], [',','agricolture', 'teacher']]
-
 # the same above but all the trigrams in the correct order
 trigrams_to_compute = [['in', 'the', 'past'], ['in', 'the', 'time'], ['the', 'jury', 'said'], ['the', 'jury', 'reccomended'], ['jury', 'said', 'that'], ['agricolture', 'teacher', ',']]
 
@@ -40,7 +38,7 @@ trigrams_to_compute = [['in', 'the', 'past'], ['in', 'the', 'time'], ['the', 'ju
 trigram_counts = np.zeros((len(trigrams_to_compute), 2))
 
 for line in f:
-    words = line.lower().split()
+    words = line.lower().split() # third word
     for i, word in enumerate(words[2:]):
         if  word not in word_index_dict:
             continue
