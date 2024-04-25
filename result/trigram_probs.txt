@@ -1,0 +1,12 @@
+past|in,the:
+prob: 0.0625 smooth prob:0.011305241521068859
+time|in,the:
+prob: 0.0 smooth prob:0.0010384215991692627
+said|the,jury:
+prob: 0.5384615384615384 smooth prob:0.0752916224814422
+reccomended|the,jury:
+prob: 0.0 smooth prob:0.0011454753722794958
+that|jury,said:
+prob: 0.0 smooth prob:0.0011198208286674132
+,|agricolture,teacher:
+prob: 0.0 smooth prob:0.001230012300123001
