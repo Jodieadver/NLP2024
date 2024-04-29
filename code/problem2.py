@@ -11,7 +11,7 @@ DO NOT SHARE/DISTRIBUTE SOLUTIONS WITHOUT THE INSTRUCTOR'S PERMISSION
 import numpy as np
 from generate import GENERATE
 
-
+# problem 2
 vocab = open("data/brown_vocab_100.txt")
 
 #load the indices dictionary
@@ -38,9 +38,31 @@ f.close()
 #TODO: normalize and writeout counts. 
 probs = counts/np.sum(counts)
 with open('result/unigram_probs.txt', 'w') as wf:
-    wf.write(str(probs))
+    for word, prob in zip(word_index_dict.keys(), probs):
+        wf.write(f"{word}|{prob}\n")
 
-print(probs[0])
-print(probs[-1])
+print(f"Probability of the word '{list(word_index_dict.keys())[0]}': {probs[0]}")
+print(f"Probability of the word '{list(word_index_dict.keys())[-1]}': {probs[-1]}")
 
 
+
+# problem 6
+# read the unigram_probs file
+with open('result/unigram_probs.txt', 'r') as f:
+    unigram_probs = {}
+    for line in f:
+        word, probability = line.strip().split('|')
+        unigram_probs[word] = float(probability)
+f_toy = open("data/toy_corpus.txt")
+
+#TODO: iterate through file and update counts
+with open('result/unigram_eval.txt', 'w') as wf:
+    for i in f_toy:
+        words = i.lower().split()
+        sentprob = 1
+        for word in words:
+            wordprob = unigram_probs[word]
+            sentprob *= wordprob
+        wf.write(f"Probability : {sentprob}\n")
+
+f_toy.close()
