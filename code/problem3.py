@@ -81,7 +81,7 @@ with open('result/bigram_eval.txt', 'w') as wf:
             previous_word = current_word
             
 
-        sent_len = len(words)-1
+        sent_len = len(words)-1 # we don't count the <s> token
         perplexity = 1 / (sentprob ** (1.0 / sent_len)) 
         wf.write(f"Perplexity: {perplexity}\n")
 f_toy.close()
