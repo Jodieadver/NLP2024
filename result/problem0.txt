@@ -1,0 +1,99 @@
+
+-- Common words --
+10 most common words in the whole corpus:
+('the', 62713)
+('of', 36080)
+('and', 27915)
+('to', 25732)
+('a', 21881)
+('in', 19536)
+('that', 10237)
+('is', 10011)
+('was', 9777)
+('for', 8841)
+
+10 most common words in the news genre:
+('the', 5580)
+('of', 2849)
+('and', 2146)
+('to', 2116)
+('a', 1993)
+('in', 1893)
+('for', 943)
+('The', 806)
+('that', 802)
+('is', 732)
+
+10 most common words in the romance genre:
+('the', 2758)
+('and', 1776)
+('to', 1502)
+('a', 1335)
+('of', 1186)
+('was', 993)
+('I', 951)
+('in', 875)
+('he', 702)
+('had', 692)
+
+-- Statistics for different corpora --
+
+
+Brown corpus:
+Number of tokens (including punct): 1161192
+Number of words: 981716
+Number of distinct words (types): 56057
+Average number of words per sentence: 17.12
+Average word length: 4.68
+
+News genre:
+Number of tokens (including punct): 100554
+Number of words: 83562
+Number of distinct words (types): 14394
+Average number of words per sentence: 18.08
+Average word length: 4.81
+
+Romance genre:
+Number of tokens (including punct): 70022
+Number of words: 56857
+Number of distinct words (types): 8452
+Average number of words per sentence: 12.83
+Average word length: 4.23
+
+-- Most frequent Part of speech tags --
+
+Brown corpus:
+('NN', 153004)
+('IN', 136198)
+('DT', 114731)
+('JJ', 74506)
+('NNP', 66057)
+('NNS', 53840)
+('VBD', 46675)
+('RB', 44906)
+('PRP', 44048)
+('CC', 37946)
+
+News genre:
+('NN', 12991)
+('IN', 11615)
+('NNP', 10975)
+('DT', 9948)
+('JJ', 5540)
+('NNS', 4771)
+('VBD', 3951)
+('CC', 2684)
+('RB', 2662)
+('VB', 2625)
+
+Romance genre:
+('NN', 7828)
+('IN', 6599)
+('DT', 5465)
+('PRP', 5343)
+('VBD', 5069)
+('JJ', 3572)
+('RB', 3272)
+('NNP', 3196)
+('CC', 2473)
+('VB', 2189)
