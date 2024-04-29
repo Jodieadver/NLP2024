@@ -63,6 +63,9 @@ with open('result/unigram_eval.txt', 'w') as wf:
         for word in words:
             wordprob = unigram_probs[word]
             sentprob *= wordprob
-        wf.write(f"Probability : {sentprob}\n")
+        
+        sen_len = len(words) 
+        perplexity = 1 / (sentprob ** (1.0 / sen_len))
+        wf.write(f"Perplexity : {perplexity}\n")
 
 f_toy.close()
