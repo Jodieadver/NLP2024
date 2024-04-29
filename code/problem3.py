@@ -75,10 +75,13 @@ with open('result/bigram_eval.txt', 'w') as wf:
             if previous_word in word_index_dict and current_word in word_index_dict:
                 wordprob = probs[word_index_dict[previous_word], word_index_dict[current_word]]
                 sentprob *= wordprob
+
+            else:
+                print(f"One of the words is not in the vocabulary: {previous_word} {current_word}")
             previous_word = current_word
             
 
-        sent_len = len(words) 
+        sent_len = len(words)-1
         perplexity = 1 / (sentprob ** (1.0 / sent_len)) 
         wf.write(f"Perplexity: {perplexity}\n")
 f_toy.close()
