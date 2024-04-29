@@ -53,6 +53,8 @@ with open('result/unigram_probs.txt', 'r') as f:
     for line in f:
         word, probability = line.strip().split('|')
         unigram_probs[word] = float(probability)
+f.close()
+        
 f_toy = open("data/toy_corpus.txt")
 
 #TODO: iterate through file and update counts

@@ -25,7 +25,6 @@ for i, line in enumerate(vocab):
     word_index_dict[line] = i
 
 
-#f = codecs.open("data/brown_100.txt")
 f = open("data/brown_100.txt")
 # first parameter is to count how many lines the txt file have, second is to count 
 counts = np.zeros((len(word_index_dict), len(word_index_dict))) #TODO: initialize numpy 0s array
@@ -60,6 +59,29 @@ with open('result/bigram_probs.txt', 'w') as wf:
 
 
 f.close()
+
+
+# problem 6
+f_toy = open("data/toy_corpus.txt")
+
+with open('result/bigram_eval.txt', 'w') as wf:
+    for line in f_toy: 
+        words =  line.lower().split()  
+        sentprob = 1
+
+        previous_word = '<s>'
+        for current_word in words[1:]:
+
+            if previous_word in word_index_dict and current_word in word_index_dict:
+                wordprob = probs[word_index_dict[previous_word], word_index_dict[current_word]]
+                sentprob *= wordprob
+            previous_word = current_word
+            
+
+        sent_len = len(words) 
+        perplexity = 1 / (sentprob ** (1.0 / sent_len)) 
+        wf.write(f"Perplexity: {perplexity}\n")
+f_toy.close()
 
 # test
 #prob1 = probs[word_index_dict['all'], word_index_dict['the']]
